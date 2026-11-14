@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as *;
+@use '../base/fonts' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: $primary-font;
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-label {
+    font-size: $form-label-font-size;
+    font-weight: 700;
+    color: $primary-font-color;
+  }
+
+  .form-required {
+    color: $primary-theme-color;
+  }
+
+  .form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid $form-border-color;
+    border-radius: 0;
+    font-family: $primary-font;
+    font-size: 15px;
+    color: $primary-font-color;
+    background-color: $primary-background-color;
+
+    &:focus {
+      outline: 2px solid $primary-theme-color;
+      outline-offset: 0;
+    }
+  }
+
+  .form-textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-error {
+    min-height: 0;
+    font-size: $form-error-font-size;
+    color: $form-error-color;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .form-input.is-invalid {
+    border-color: $form-error-color;
+  }
+
+  .form-input.is-valid {
+    border-color: $form-success-color;
+  }
+
+  .form-status {
+    margin: 0;
+    font-size: $form-status-font-size;
+    font-weight: 600;
+
+    &:empty {
+      display: none;
+    }
+
+    &.is-success {
+      color: $form-success-color;
+    }
+
+    &.is-error {
+      color: $form-error-color;
+    }
+  }
+}

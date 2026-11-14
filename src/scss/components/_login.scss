@@ -1,0 +1,111 @@
+@use '../abstracts/variables' as *;
+@use '../base/fonts' as *;
+
+.login {
+  width: max(400px);
+  height: max(384px);
+  padding: 0;
+  border: 0;
+  background-color: $primary-background-color;
+  font-family: $primary-font;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .login-form {
+    padding: 32px 24px;
+  }
+
+  .login-title {
+    margin: 0 0 24px;
+    font-size: $login-title-font-size;
+    font-weight: 500;
+    color: $input-font-color;
+  }
+
+  .form-label {
+    font-size: $login-label-font-size;
+    font-weight: 400;
+  }
+
+  .password-wrap {
+    position: relative;
+    display: block;
+
+    .form-input {
+      padding-right: 40px;
+    }
+  }
+
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    border: 0;
+    background: none;
+    color: $input-font-color;
+    cursor: pointer;
+  }
+
+  .login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: $login-small-font-size;
+  }
+
+  .login-remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $input-font-color;
+  }
+
+  .login-forgot {
+    font-weight: 700;
+    color: $primary-theme-color;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .login-submit {
+    width: 100%;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
+
+button.user-icon {
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.notice {
+  width: min(100% - 32px, 320px);
+  padding: 32px 24px;
+  border: 0;
+  text-align: center;
+  font-family: $primary-font;
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .notice-title {
+    margin: 0 0 12px;
+    font-size: 18px;
+  }
+
+  .notice-text {
+    margin: 0 0 24px;
+    color: $paragraph-color;
+  }
+}

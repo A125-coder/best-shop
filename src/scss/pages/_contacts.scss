@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/fonts' as *;
+
+.contact-us-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('../../src/assets/img/contact-us/contact-banner.png');
+}
+
+.feedback {
+  @include container(1040px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+  font-family: $primary-font;
+
+  @include respond($bp-desktop) {
+    grid-template-columns: minmax(0, 354fr) minmax(0, 480fr);
+    align-items: start;
+    gap: 24px;
+    padding-bottom: 80px;
+  }
+
+  .feedback-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  }
+
+  .feedback-title {
+    margin: 0 0 16px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $primary-font-color;
+
+    @include respond($bp-desktop) {
+      font-size: $feedback-title-font-size;
+    }
+  }
+
+  .feedback-text {
+    margin: 0 0 32px;
+    font-size: $feedback-text-font-size;
+    color: $primary-font-color;
+  }
+}

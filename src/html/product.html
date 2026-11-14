@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capstone Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../dist/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <section class="nav-icons">
+        <button
+          class="nav-burger"
+          id="nav-burger"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+        <section class="social-media-icons">
+          <a class="social-icon" href="https://www.facebook.com/" target="blank"
+            ><i class="fa-brands fa-square-facebook"></i
+          ></a>
+          <a class="social-icon" href="https://x.com/" target="blank"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+          <a
+            class="social-icon"
+            href="https://www.instagram.com/"
+            target="blank"
+            ><i class="fa-brands fa-square-instagram"></i
+          ></a>
+        </section>
+        <section class="brand-name">
+          <a class="brand-name-link" href="../index.html">
+            <img
+              class="brand-logo"
+              src="../assets/img/brand-suitcase.png"
+              alt="Brand Logo"
+            />
+            <span class="brand-title">Best Shop</span>
+          </a>
+        </section>
+        <section class="user-icons">
+          <button
+            class="user-icon"
+            type="button"
+            aria-label="Log in"
+            data-open-login
+          >
+            <i class="fa-regular fa-user"></i>
+          </button>
+          <a class="user-icon cart-link" href="./cart.html" aria-label="Cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count" hidden>0</span>
+          </a>
+        </section>
+      </section>
+      <nav class="header-nav" id="site-nav" aria-label="Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="../index.html">Home</a></li>
+          <li class="nav-item active">
+            <a href="./catalog.html"
+              >Catalog <i class="fa-solid fa-angle-down"></i
+            ></a>
+          </li>
+          <li class="nav-item"><a href="./about.html">About Us</a></li>
+          <li class="nav-item">
+            <a href="./contact.html">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main section -->
+    <main>
+      <section class="product" id="product">
+        <section class="product-gallery">
+          <img
+            class="product-main-image"
+            id="product-main-image"
+            src=""
+            alt=""
+          />
+          <ul class="product-thumbs" id="product-thumbs"></ul>
+        </section>
+
+        <section class="product-info">
+          <span class="product-name" id="product-name"></span>
+          <p class="product-rating">
+            <span class="product-stars" id="product-stars"></span>
+            <small class="product-reviews">(1 Clients Review)</small>
+          </p>
+          <p class="product-cost" id="product-price"></p>
+
+          <p class="product-desc">
+            The new Global Explorer Max Comfort Suitcase Pro is a bold
+            reimagining of travel essentials, designed to elevate every journey.
+            Made with at least 30% recycled materials, its lightweight yet
+            impact-resistant shell combines eco-conscious innovation with rugged
+            durability.
+          </p>
+          <p class="product-desc">
+            The ergonomic handle and GlideMotion spinner wheels ensure
+            effortless mobility while making a statement in sleek design.
+            Inside, the modular compartments and adjustable straps keep your
+            belongings secure and neatly organized, no matter the destination.
+          </p>
+
+          <form class="product-form form" id="product-form">
+            <label class="form-field">
+              <span class="form-label">Size</span>
+              <select class="form-input" id="product-size"></select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Color</span>
+              <select class="form-input" id="product-color"></select>
+            </label>
+            <label class="form-field">
+              <span class="form-label">Category</span>
+              <select class="form-input" id="product-category"></select>
+            </label>
+
+            <section class="product-buy">
+              <fieldset class="qty">
+                <legend class="visually-hidden">Quantity</legend>
+                <button
+                  class="qty-btn"
+                  type="button"
+                  id="qty-minus"
+                  aria-label="Decrease"
+                >
+                  -
+                </button>
+                <input
+                  class="qty-input"
+                  id="qty-input"
+                  type="number"
+                  value="1"
+                  min="1"
+                  max="99"
+                  aria-label="Quantity"
+                />
+                <button
+                  class="qty-btn"
+                  type="button"
+                  id="qty-plus"
+                  aria-label="Increase"
+                >
+                  +
+                </button>
+              </fieldset>
+              <button class="btn product-add" type="submit">Add To Cart</button>
+            </section>
+          </form>
+
+          <p class="product-payment">
+            <span class="product-payment-label">Payment:</span>
+            <i class="fa-brands fa-cc-visa" aria-label="Visa"></i>
+            <i class="fa-brands fa-cc-amex" aria-label="American Express"></i>
+            <i class="fa-brands fa-cc-mastercard" aria-label="Mastercard"></i>
+            <i class="fa-brands fa-cc-paypal" aria-label="PayPal"></i>
+          </p>
+        </section>
+      </section>
+
+      <section class="tabs">
+        <ul class="tabs-list" role="tablist">
+          <li>
+            <button
+              class="tab active"
+              role="tab"
+              type="button"
+              aria-selected="true"
+              aria-controls="tab-details"
+              data-tab="tab-details"
+            >
+              Details
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="tab-reviews"
+              data-tab="tab-reviews"
+            >
+              Reviews
+            </button>
+          </li>
+          <li>
+            <button
+              class="tab"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="tab-shipping"
+              data-tab="tab-shipping"
+            >
+              Shipping Policy
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-panel" id="tab-details" role="tabpanel">
+          <p>
+            Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh
+            mollis. Nulla porta risus id neque tempor, in efficitur justo
+            imperdiet. Etiam a ex at ante tincidunt imperdiet. Nunc congue ex
+            vel nisl viverra, sit amet aliquet lectus ullamcorper. Praesent
+            luctus lacus non lorem elementum, eu tristique sapien suscipit. Sed
+            bibendum, ipsum nec viverra malesuada, erat nisi sodales purus, eget
+            hendrerit dui ligula eu enim. Ut non est nisi. Pellentesque
+            tristique pretium dolor eu commodo. Proin iaculis nibh vitae lectus
+            mollis bibendum. Quisque varius eget urna sit amet luctus.
+            Suspendisse potenti. Curabitur ac placerat est, sit amet sodales
+            risus. Pellentesque viverra dui auctor, ullamcorper turpis pharetra,
+            facilisis quam.
+          </p>
+          <p>
+            Proin iaculis nibh vitae lectus mollis bibendum. Quisque varius eget
+            urna sit amet luctus. Suspendisse potenti. Curabitur ac placerat
+            est, sit amet sodales risus. Pellentesque viverra dui auctor,
+            ullamcorper turpis pharetra, facilisis quam. Proin iaculis nibh
+            vitae lectus mollis bibendum.
+          </p>
+          <p>
+            Quisque varius eget urna sit amet luctus. Suspendisse potenti.
+            Curabitur ac placerat est, sit amet sodales risus. Pellentesque
+            viverra dui auctor, ullamcorper turpis pharetra, facilisis quam.
+          </p>
+        </div>
+        <div
+          class="tab-panel reviews-panel"
+          id="tab-reviews"
+          role="tabpanel"
+          hidden
+        >
+          <span class="reviews-title" id="reviews-title"></span>
+
+          <section class="reviews-list" id="reviews-list">
+            <p class="reviews-empty">
+              No reviews yet. Be the first to review this product!
+            </p>
+          </section>
+
+          <section class="review-form-section">
+            <h3 class="review-form-title">Add Review</h3>
+            <p class="review-required">
+              Your email address won't be shared with anybody. Required fields
+              have the symbol
+              <span class="review-asterisk">*</span>
+            </p>
+
+            <form class="review-form" id="review-form">
+              <fieldset class="review-rating">
+                <legend>Rate product</legend>
+                <span class="rating-options">
+                  <input
+                    type="radio"
+                    id="rating-1"
+                    name="rating"
+                    value="1"
+                    required
+                  />
+                  <label for="rating-1"
+                    ><span class="visually-hidden">1 star</span></label
+                  >
+                  <input type="radio" id="rating-2" name="rating" value="2" />
+                  <label for="rating-2"
+                    ><span class="visually-hidden">2 stars</span></label
+                  >
+                  <input type="radio" id="rating-3" name="rating" value="3" />
+                  <label for="rating-3"
+                    ><span class="visually-hidden">3 stars</span></label
+                  >
+                  <input type="radio" id="rating-4" name="rating" value="4" />
+                  <label for="rating-4"
+                    ><span class="visually-hidden">4 stars</span></label
+                  >
+                  <input type="radio" id="rating-5" name="rating" value="5" />
+                  <label for="rating-5"
+                    ><span class="visually-hidden">5 stars</span></label
+                  >
+                </span>
+              </fieldset>
+
+              <label class="review-field">
+                <span class="visually-hidden">Your Review</span>
+                <textarea
+                  name="review"
+                  rows="6"
+                  placeholder="Your Review *"
+                  required
+                ></textarea>
+              </label>
+
+              <section class="review-fields-row">
+                <label class="review-field">
+                  <span class="visually-hidden">Your Name</span>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name *"
+                    required
+                  />
+                </label>
+                <label class="review-field">
+                  <span class="visually-hidden">Your Email</span>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email *"
+                    required
+                  />
+                </label>
+              </section>
+
+              <label class="review-save">
+                <input type="checkbox" name="save-details" />
+                <span
+                  >Save my name, email, and website in this browser for when I
+                  leave another comment.</span
+                >
+              </label>
+
+              <button class="btn review-submit" type="submit">Submit</button>
+              <p
+                class="review-message"
+                id="review-message"
+                aria-live="polite"
+              ></p>
+            </form>
+          </section>
+        </div>
+        <div class="tab-panel" id="tab-shipping" role="tabpanel" hidden>
+          <p>
+            Vestibulum commodo sapien non elit porttitor, vitae volutpat nibh
+            mollis. Nulla porta risus id neque tempor, in efficitur justo
+            imperdiet. Etiam a ex at ante tincidunt imperdiet. Nunc congue ex
+            vel nisl viverra, sit amet aliquet lectus ullamcorper. Praesent
+            luctus lacus non lorem elementum, eu tristique sapien suscipit. Sed
+            bibendum, ipsum nec viverra malesuada, erat nisi sodales purus, eget
+            hendrerit dui ligula eu enim. Ut non est nisi. Pellentesque
+            tristique pretium dolor eu commodo. Proin iaculis nibh vitae lectus
+            mollis bibendum. Quisque varius eget urna sit amet luctus.
+            Suspendisse potenti. Curabitur ac placerat est, sit amet sodales
+            risus. Pellentesque viverra dui auctor, ullamcorper turpis pharetra,
+            facilisis quam.
+          </p>
+        </div>
+      </section>
+
+      <section class="related">
+        <h2 class="related-title">You May Also Like</h2>
+        <ul class="product-list" id="related-list"></ul>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <section class="our-benefits">
+        <h3 class="our-benefits-title">Our Benefits</h3>
+        <ul class="our-benefits-list">
+          <li class="our-benefits-item">
+            <img src="../assets/img/plane.png" alt="Free Air Shipping" />Velit
+            nisl sodales eget donec quis. volutpat orci.
+          </li>
+          <li class="our-benefits-item">
+            <img src="../assets/img/truck.png" alt="Free Truck Shipping" />Dolor
+            eu varius. Morbi fermentum velit nisl.
+          </li>
+          <li class="our-benefits-item">
+            <img
+              src="../assets/img/coins.png"
+              alt="Money Back Guarantee"
+            />Malesuada fames ac ante ipsum primis in faucibus.
+          </li>
+          <li class="our-benefits-item">
+            <img src="../assets/img/hat.png" alt="Trained personel" />Nisl
+            sodales eget donec quis. volutpat orci.
+          </li>
+        </ul>
+      </section>
+      <section class="footer-main">
+        <section class="footer-info">
+          <nav class="footer-nav" aria-label="About Us">
+            <h4 class="footer-nav-title">About Us</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#">Organisation</a></li>
+              <li><a href="#">Partners</a></li>
+              <li><a href="#">Clients</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav" aria-label="Interesting Links">
+            <h4 class="footer-nav-title">Interesting Links</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#">Photo Gallery</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Socials</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav" aria-label="Achievements">
+            <h4 class="footer-nav-title">Achievements</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#">Winning Awards</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Our Amazing Clients</a></li>
+            </ul>
+          </nav>
+          <section class="shipping-info">
+            <h4 class="footer-nav-title">Shipping Information</h4>
+            <p class="footer-text">
+              Nulla eleifend pulvinar purus, molestie euismod odio imperdiet ac.
+              Ut sit amet erat nec nibh rhoncus varius in non lorem. Donec
+              interdum, lectus in convallis pulvinar, enim elit porta sapien,
+              vel finibus erat felis sed neque. Etiam aliquet neque sagittis
+              erat tincidunt aliquam.
+            </p>
+          </section>
+        </section>
+
+        <section class="contact-us">
+          <h4 class="footer-nav-title">Contact Us</h4>
+          <p class="footer-text">
+            Bendum dolor eu varius. Morbi fermentum velitsodales egetonec.
+            volutpat orci. Sed ipsum felis, tristique egestas et, convallis ac
+            velitn consequat nec luctus.
+          </p>
+          <address class="contact-list">
+            <a class="contact-item" href="tel:+632366322">
+              <i class="fa-solid fa-phone"></i>
+              <span>Phone: (+63) 236 6322</span>
+            </a>
+            <a class="contact-item" href="mailto:public@news.com">
+              <i class="fa-regular fa-envelope"></i>
+              <span>public@news.com</span>
+            </a>
+            <p class="contact-item">
+              <i class="fa-regular fa-clock"></i>
+              <span>Mon - Fri: 10am - 6pm<br />Sat - Sun: 10am - 6pm</span>
+            </p>
+            <p class="contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>639 Jade Valley,<br />Washington Dc</span>
+            </p>
+          </address>
+        </section>
+      </section>
+
+      <p class="copyright"><small>© Copyright 2025</small></p>
+    </footer>
+
+    <dialog class="login" id="login-dialog" aria-labelledby="login-title">
+      <form class="login-form form" id="login-form" novalidate>
+        <h2 class="login-title" id="login-title">Account Log In</h2>
+
+        <label class="form-field">
+          <span class="form-label"
+            >Email address <span class="form-required">*</span></span
+          >
+          <input
+            class="form-input"
+            type="email"
+            name="email"
+            id="login-email"
+            autocomplete="email"
+            aria-describedby="login-email-error"
+            required
+          />
+          <span class="form-error" id="login-email-error" role="alert"></span>
+        </label>
+
+        <label class="form-field">
+          <span class="form-label"
+            >Password <span class="form-required">*</span></span
+          >
+          <span class="password-wrap">
+            <input
+              class="form-input"
+              type="password"
+              name="password"
+              id="login-password"
+              autocomplete="current-password"
+              aria-describedby="login-password-error"
+              required
+            />
+            <button
+              class="password-toggle"
+              type="button"
+              aria-label="Show password"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </span>
+          <span
+            class="form-error"
+            id="login-password-error"
+            role="alert"
+          ></span>
+        </label>
+
+        <section class="login-options">
+          <label class="login-remember">
+            <input type="checkbox" name="remember" />
+            <span>Remember me</span>
+          </label>
+          <a class="login-forgot" href="#">Forgot Your Password?</a>
+        </section>
+
+        <button class="btn login-submit" type="submit">Log In</button>
+      </form>
+    </dialog>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/product.js" defer></script>
+  </body>
+</html>

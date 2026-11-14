@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+@use '../base/fonts' as *;
+
+.btn {
+  display: inline-block;
+  padding: 16px 24px;
+  background-color: $primary-theme-color;
+  color: $primary-background-color;
+  border: 0;
+  cursor: pointer;
+  font-family: $primary-font;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.offer .btn {
+  font-size: $offer-button-font-size;
+}
+
+.btn-small {
+  align-self: flex-start;
+  padding: 10px 24px;
+  font-size: $form-button-font-size;
+  text-transform: uppercase;
+}

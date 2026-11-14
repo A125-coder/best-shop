@@ -1,0 +1,250 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/fonts' as *;
+
+.about-hero,
+.contact-us-hero {
+  @include container-padding;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  text-align: center;
+  font-family: $primary-font;
+  color: $primary-background-color;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url('../../src/assets/img/about-img/about-hero.png');
+  background-size: cover;
+  background-position: center;
+
+  @include respond($bp-desktop) {
+    min-height: 394px;
+  }
+
+  .about-hero .about-hero-title,
+  .contact-us-hero .contact-us-hero-title {
+    margin: 0 0 16px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    @include respond($bp-desktop) {
+      font-size: $about-hero-title-font-size;
+    }
+  }
+
+  .about-hero .about-hero-text,
+  .contact-us-hero .contact-us-hero-text {
+    max-width: 426px;
+    margin: 0;
+    font-size: $about-hero-text-font-size;
+    line-height: 1.6;
+  }
+}
+
+// Features section styles
+.features {
+  @include container(1040px);
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include respond($bp-desktop) {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include respond($bp-desktop) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+    }
+  }
+
+  .features-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: $primary-font;
+  }
+
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 0 24px;
+    background-color: $primary-theme-color;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  .feature-title {
+    margin: 0 0 16px;
+    font-size: $feature-title-font-size;
+    font-weight: 700;
+    color: $primary-font-color;
+  }
+
+  .feature-text {
+    max-width: 200px;
+    margin: 0;
+    font-size: $feature-text-font-size;
+    line-height: 1.6;
+    color: $primary-font-color;
+  }
+}
+
+// New arrivals section styles
+.arrivals {
+  @include container(1040px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+  font-family: $primary-font;
+
+  @include respond($bp-desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+    padding-bottom: 80px;
+  }
+
+  .arrivals-title {
+    margin: 0 0 24px;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: $primary-font-color;
+
+    @include respond($bp-desktop) {
+      font-size: $arrivals-title-font-size;
+    }
+  }
+
+  .arrivals-text {
+    margin: 0 0 20px;
+    font-size: $arrivals-text-font-size;
+    line-height: 1.6;
+    color: $paragraph-color;
+  }
+
+  .arrivals-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    order: -1; // Move the image above the text on smaller screens
+
+    @include respond($bp-desktop) {
+      order: 0; // Reset the order on larger screens
+    }
+  }
+}
+
+// Team section styles
+.team {
+  @include container(1040px);
+  padding-top: 24px;
+  padding-bottom: 48px;
+  font-family: $primary-font;
+
+  @include respond($bp-desktop) {
+    padding-bottom: 80px;
+  }
+
+  .team-title {
+    width: fit-content;
+    margin: 0 auto 40px;
+    padding-bottom: 8px;
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+    color: $primary-font-color;
+    border-bottom: 3px solid $primary-theme-color;
+
+    @include respond($bp-desktop) {
+      font-size: $team-title-font-size;
+      margin-bottom: 48px;
+    }
+  }
+
+  .team-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    @include respond($bp-desktop) {
+      gap: 20px;
+    }
+  }
+
+  .team-card {
+    margin: 0;
+  }
+
+  .team-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 237 / 197;
+    object-fit: cover;
+  }
+
+  .team-caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    text-align: center;
+  }
+
+  .team-name {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $primary-font-color;
+
+    @include respond($bp-desktop) {
+      font-size: $team-name-font-size;
+    }
+  }
+
+  .team-role {
+    font-size: 16px;
+    font-weight: 400;
+    color: $primary-font-color;
+
+    @include respond($bp-desktop) {
+      font-size: $team-role-font-size;
+    }
+  }
+}

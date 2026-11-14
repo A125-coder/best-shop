@@ -1,0 +1,226 @@
+@use '../abstracts/variables' as *;
+@use '../base/fonts' as *;
+@use '../abstracts/mixins' as *;
+
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $primary-background-color;
+}
+
+.nav-icons {
+  @include container-padding;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'menu brand user'
+    'social social social';
+  align-items: center;
+  row-gap: 12px;
+
+  @include respond($bp-tablet) {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: 'social brand user';
+    row-gap: 0;
+  }
+
+  .nav-burger {
+    grid-area: menu;
+    justify-self: start;
+    padding: 4px;
+    border: 0;
+    font-size: 24px;
+    color: $primary-font-color;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-theme-color;
+    }
+
+    @include respond($bp-tablet) {
+      display: none;
+    }
+  }
+
+  .social-media-icons {
+    grid-area: social;
+    justify-self: center;
+
+    @include respond($bp-tablet) {
+      justify-self: start;
+    }
+
+    .social-icon {
+      color: $primary-font-color;
+      font-size: 20px;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-theme-color;
+      }
+    }
+  }
+
+  .brand-name {
+    grid-area: brand;
+    justify-self: center;
+
+    .brand-name-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 28px;
+      height: 28px;
+      background-color: $primary-theme-color;
+
+      @include respond($bp-tablet) {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    .brand-title {
+      margin: 0;
+      font-family: $primary-font;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 1;
+      color: $primary-theme-color;
+
+      @include respond($bp-tablet) {
+        font-size: $header-title-font-size;
+      }
+    }
+  }
+
+  .user-icons {
+    grid-area: user;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .user-icon {
+      padding: 0;
+      border: 0;
+      background: none;
+      font: inherit;
+      line-height: 1;
+      cursor: pointer;
+      color: $primary-font-color;
+      font-size: 24px;
+      text-decoration: none;
+
+      @include respond($bp-tablet) {
+        font-size: $header-icon-size;
+      }
+
+      &:hover {
+        color: $primary-theme-color;
+      }
+    }
+  }
+}
+
+// ===== Navigation =====
+.header-nav {
+  @include container;
+  display: none;
+
+  &.is-open {
+    display: block;
+    border-bottom: 1px solid $filter-border-color;
+  }
+
+  @include respond($bp-tablet) {
+    display: block;
+    border-bottom: 0;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+
+    @include respond($bp-tablet) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 32px;
+      padding: 0;
+    }
+
+    .nav-item {
+      a {
+        display: block;
+        padding: 12px 0;
+        font-family: $primary-font;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        color: $primary-font-color;
+
+        @include respond($bp-tablet) {
+          padding: 16px 0;
+          font-size: $nav-item-font-size;
+        }
+
+        &:hover {
+          color: $primary-theme-color;
+        }
+      }
+
+      &.active a {
+        color: $primary-theme-color;
+      }
+
+      i {
+        margin-left: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+// ===== Cart Count =====
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $primary-theme-color;
+  border-radius: 50%;
+  background-color: $primary-background-color;
+  color: $primary-theme-color;
+  font-family: $primary-font;
+  font-size: $cart-count-font-size;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-count[hidden] {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  display: none;
+}

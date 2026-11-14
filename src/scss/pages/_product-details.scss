@@ -1,0 +1,484 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/fonts' as *;
+
+.product {
+  @include container(1040px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  padding-top: 32px;
+  padding-bottom: 40px;
+  font-family: $primary-font;
+
+  @include respond($bp-desktop) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .product-main-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .product-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 2px solid transparent;
+      background: none;
+      cursor: pointer;
+
+      &.active {
+        border-color: $primary-theme-color;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+
+  .product-name {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+
+    @include respond($bp-desktop) {
+      font-size: $product-title-font-size;
+    }
+  }
+
+  .product-rating {
+    margin: 0 0 8px;
+  }
+
+  .product-stars {
+    font-size: 11px;
+    color: $star-rating-color;
+  }
+
+  .product-reviews {
+    margin-left: 6px;
+    font-size: 9px;
+    color: $paragraph-color;
+  }
+
+  .product-cost {
+    margin: 0 0 24px;
+    font-size: $product-price-font-size;
+    font-weight: 700;
+  }
+
+  .product-desc {
+    margin: 0 0 16px;
+    font-size: $product-text-font-size;
+    line-height: 1.7;
+    color: $paragraph-color;
+  }
+
+  .product-form {
+    margin-top: 32px;
+
+    .form-label {
+      font-size: $product-label-font-size;
+    }
+  }
+
+  .product-buy {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+
+    .product-add {
+      flex: 1;
+    }
+  }
+
+  .qty {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    border: 1px solid $primary-theme-color;
+  }
+
+  .qty-btn {
+    width: 32px;
+    height: 100%;
+    border: 0;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .qty-input {
+    width: 36px;
+    border: 0;
+    text-align: center;
+    font-family: $primary-font;
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  .product-payment {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0 0;
+    font-size: 26px;
+    color: $paragraph-color;
+
+    .product-payment-label {
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+}
+
+.tabs {
+  @include container(1040px);
+  font-family: $primary-font;
+
+  .tabs-list {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+  }
+
+  .tab {
+    padding: 0 0 6px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    font-family: $primary-font;
+    font-size: $product-tab-font-size;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+
+    &.active {
+      border-bottom-color: $primary-theme-color;
+    }
+  }
+
+  .tab-panel {
+    font-size: $product-text-font-size;
+    line-height: 1.7;
+    color: $paragraph-color;
+
+    p {
+      margin: 0 0 16px;
+    }
+  }
+
+  .tab-panel[hidden] {
+    display: none;
+  }
+}
+
+.related {
+  @include container(1040px);
+  padding-top: 48px;
+  padding-bottom: 64px;
+  font-family: $primary-font;
+
+  .related-title {
+    width: fit-content;
+    margin: 0 auto 32px;
+    padding-bottom: 6px;
+    font-size: 18px;
+    font-weight: 800;
+    border-bottom: 2px solid $primary-theme-color;
+
+    @include respond($bp-desktop) {
+      font-size: $related-title-font-size;
+    }
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include respond($bp-desktop) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+  }
+}
+
+.reviews-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  font-family: $primary-font;
+  text-align: left;
+
+  @include respond($bp-desktop) {
+    grid-template: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'title form'
+      'list form';
+    grid-template-rows: auto 1fr;
+    gap: 0 60px;
+    align-items: start;
+
+    .reviews-title {
+      grid-area: title;
+    }
+
+    .reviews-list {
+      grid-area: list;
+    }
+
+    .review-form-section {
+      grid-area: form;
+    }
+  }
+
+  .reviews-title,
+  .review-form-title {
+    margin: 0;
+    font-size: $review-title-font-size;
+    font-weight: 700;
+    color: $primary-font-color;
+  }
+
+  .reviews-list {
+    margin-top: 40px;
+  }
+
+  .reviews-empty {
+    margin: 0;
+    font-size: $review-text-font-size;
+    color: $paragraph-color;
+  }
+
+  // ----- review -----
+  .review-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .review-avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: $hero-background-color;
+    color: $primary-theme-color;
+    font-size: 14px;
+  }
+
+  .review-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .review-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .review-author {
+    font-size: $review-text-font-size;
+    font-weight: 600;
+    color: $paragraph-color;
+  }
+
+  .review-date {
+    font-size: $review-small-font-size;
+    color: $input-font-color;
+    white-space: nowrap;
+  }
+
+  .review-stars {
+    margin-left: auto;
+    width: 101px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 1;
+    color: $star-rating-color;
+  }
+
+  .review-text {
+    margin: 0;
+    font-size: $review-text-font-size;
+    line-height: 1.7;
+    color: $primary-font-color;
+    overflow-wrap: anywhere;
+    flex-shrink: 0;
+  }
+
+  // ----- form -----
+  .review-required {
+    margin: 12px 0 20px;
+    font-size: $review-small-font-size;
+    color: $primary-font-color;
+  }
+
+  .review-asterisk {
+    color: $primary-theme-color;
+  }
+
+  .review-form {
+    display: grid;
+    gap: 16px;
+  }
+
+  .review-rating {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    legend {
+      float: left;
+      margin-right: 12px;
+      padding: 0;
+      font-size: $review-small-font-size;
+      font-weight: 700;
+      line-height: 20px;
+      text-transform: uppercase;
+    }
+  }
+
+  .rating-options {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    label {
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 20px;
+      color: $star-rating-color;
+
+      &::before {
+        content: '\f005';
+        font-family: 'Font Awesome 6 Free', sans-serif;
+        font-weight: 400;
+      }
+
+      &.is-filled::before {
+        font-weight: 900;
+      }
+    }
+
+    input:focus-visible + label {
+      outline: 2px solid $primary-theme-color;
+      outline-offset: 2px;
+    }
+  }
+
+  .review-field {
+    display: block;
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      border: 1px solid $form-border-color;
+      border-radius: 0;
+      font-family: $primary-font;
+      font-size: $review-small-font-size;
+      color: $primary-font-color;
+      background-color: $primary-background-color;
+
+      &::placeholder {
+        color: $input-font-color;
+      }
+
+      &:focus {
+        outline: 2px solid $primary-theme-color;
+        outline-offset: 0;
+      }
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+  }
+
+  .review-fields-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .review-save {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: $review-small-font-size;
+    line-height: 1.6;
+    color: $input-font-color;
+
+    input {
+      margin-top: 2px;
+      accent-color: $primary-theme-color;
+    }
+  }
+
+  .review-submit {
+    justify-self: start;
+    padding: 10px 20px;
+    font-size: $review-small-font-size;
+    text-transform: uppercase;
+  }
+
+  .review-message {
+    margin: 0;
+    font-size: $review-small-font-size;
+    color: $primary-theme-color;
+  }
+}

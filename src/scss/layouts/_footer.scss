@@ -1,0 +1,180 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/fonts' as *;
+
+.footer {
+  background-color: $primary-background-color;
+  color: $primary-font-color;
+}
+
+// ===== Our Benefits =====
+.our-benefits {
+  @include container-padding;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: $benefit-background-color;
+  color: $primary-background-color;
+  background-image: linear-gradient(
+      rgba(80, 78, 74, 0.8),
+      rgba(80, 78, 74, 0.8)
+    ),
+    url('../../src/assets/img/waves.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .our-benefits-title {
+    margin: 0 0 24px;
+    font-family: $secondary-font;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .our-benefits-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond($bp-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+  }
+
+  .our-benefits-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: $secondary-font;
+
+    img {
+      width: 48px;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    p {
+      margin: 0;
+      font-family: $secondary-font;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+}
+
+// ===== Footer Main =====
+.footer-main {
+  @include container;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 32px;
+  font-family: $secondary-font;
+  font-size: $footer-text-font-size;
+  color: $primary-font-color;
+
+  @include respond($bp-desktop) {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 64px;
+    padding-top: 64px;
+    padding-bottom: 48px;
+  }
+
+  .footer-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-content: space-between;
+      row-gap: 40px;
+    }
+  }
+
+  .footer-nav-title {
+    margin: 0 0 16px;
+    font-size: $footer-title-font-size;
+    font-weight: bold;
+  }
+
+  .footer-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: $primary-font-color;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-theme-color;
+      }
+    }
+  }
+
+  .shipping-info {
+    @include respond($bp-tablet) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .footer-text {
+    margin: 0;
+    line-height: 1.8;
+  }
+
+  .contact-us .footer-text {
+    margin-bottom: 24px;
+
+    @include respond($bp-desktop) {
+      margin-bottom: 32px;
+    }
+  }
+
+  .contact-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px 16px;
+    font-style: normal;
+
+    @include respond($bp-tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    line-height: 1.4;
+    color: $primary-font-color;
+    text-decoration: none;
+
+    i {
+      font-size: 20px;
+      color: $primary-theme-color;
+    }
+  }
+}
+
+.copyright {
+  margin: 0;
+  padding: 24px 16px 32px;
+  text-align: center;
+  font-family: $tertiary-font;
+  font-size: 14px;
+  color: #a5a5a5;
+}
